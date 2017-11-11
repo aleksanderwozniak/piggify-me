@@ -3,7 +3,8 @@ package com.olq.piggifyme.mainscreen
 /**
  * Created by olq on 11.11.17.
  */
-class MainPresenter(val mainView: MainScreenContract.View)
+class MainPresenter(val mainView: MainScreenContract.View,
+                    val model: Model)
     : MainScreenContract.Presenter {
 
     init {
@@ -12,7 +13,9 @@ class MainPresenter(val mainView: MainScreenContract.View)
 
 
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mainView.updateIncomeView(model.incomeValue)
+        mainView.updateExpenseView(model.expenseValue)
+        mainView.updateBalanceView(model.calculateBalance())
     }
 
 
@@ -24,22 +27,29 @@ class MainPresenter(val mainView: MainScreenContract.View)
     override fun onNewItemAdded(dialogType: DialogType, amount: String) {
         val newValue = validateUserInput(amount)
 
-        updateView(dialogType, newValue)
+        updateData(dialogType, newValue)
     }
+
 
     private fun validateUserInput(amount: String): Int {
         return if (amount.isEmpty()) 0 else amount.toInt()
     }
 
-    private fun updateView(dialogType: DialogType, value: Int) {
-        when (dialogType) {
-            DialogType.DIALOG_INCOME -> {
-                mainView.updateIncomeView(value)
+    private fun updateData(dialogType: DialogType, value: Int) {
+        if (value > 0) {
+            when (dialogType) {
+                DialogType.DIALOG_INCOME -> {
+                    model.incomeValue += value
+                    mainView.updateIncomeView(model.incomeValue)
+                }
+
+                DialogType.DIALOG_EXPENSE -> {
+                    model.expenseValue += value
+                    mainView.updateExpenseView(model.expenseValue)
+                }
             }
 
-            DialogType.DIALOG_EXPENSE -> {
-                mainView.updateExpenseView(value)
-            }
+            mainView.updateBalanceView(model.calculateBalance())
         }
     }
 }

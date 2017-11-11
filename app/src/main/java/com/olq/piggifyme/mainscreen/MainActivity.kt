@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        presenter = MainPresenter(fragment)
+        presenter = MainPresenter(fragment, Model())
 
         fab_income.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_INCOME) }
         fab_expense.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_EXPENSE) }
