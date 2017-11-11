@@ -39,4 +39,6 @@ dependencies {
     implementation"org.jetbrains.anko:anko-appcompat-v7:0.10.2"
 
     implementation'com.getbase:floatingactionbutton:1.10.1'
+
+    testImplementation 'org.mockito:mockito-inline:2.8.9'
 }
