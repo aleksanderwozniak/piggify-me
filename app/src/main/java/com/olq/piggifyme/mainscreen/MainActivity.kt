@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.olq.piggifyme.R
+import com.olq.piggifyme.injector.Injector
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.floating_menu_layout.*
@@ -20,7 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val fragment = MainFragment.newInstance()
+        val temp = supportFragmentManager.findFragmentById(R.id.contentFrame)
+        val fragment: MainFragment ?=
+                if (temp != null) temp as MainFragment
+                else MainFragment.newInstance()
+
 
         if (savedInstanceState == null) {
             supportFragmentManager
@@ -30,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        presenter = MainPresenter(fragment, Model())
+        //TODO: Injector - swap it later for Dagger2
+        presenter = MainPresenter(fragment!!, Injector.provideModel())
 
         fab_income.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_INCOME) }
         fab_expense.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_EXPENSE) }
