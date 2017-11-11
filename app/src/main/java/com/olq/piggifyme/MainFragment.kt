@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class MainActivityFragment : Fragment() {
+class MainFragment : Fragment() {
 
     companion object {
-        fun newInstance(): MainActivityFragment {
-            return MainActivityFragment()
+        fun newInstance(): MainFragment {
+            return MainFragment()
         }
     }
 
