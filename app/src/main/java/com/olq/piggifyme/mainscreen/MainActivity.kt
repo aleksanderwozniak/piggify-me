@@ -1,24 +1,39 @@
-package com.olq.piggifyme
+package com.olq.piggifyme.mainscreen
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.olq.piggifyme.R
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.floating_menu_layout.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var presenter: MainScreenContract.Presenter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        val fragment = MainFragment.newInstance()
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.contentFrame, fragment, "fragmentMain")
+                    .commit()
         }
+
+
+        presenter = MainPresenter(fragment, Model())
+
+        fab_income.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_INCOME) }
+        fab_expense.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_EXPENSE) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -32,7 +47,11 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_reset -> {
+                presenter.onResetClick()
+                toast("Data re-set")
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

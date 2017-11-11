@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Piggify.me</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_reset">Reset data</string>
+    <string name="income_text">Income: %1$d</string>
+    <string name="expense_text">Expense: %1$d</string>
+    <string name="balance_text">Balance: %1$d</string>
 </resources>
