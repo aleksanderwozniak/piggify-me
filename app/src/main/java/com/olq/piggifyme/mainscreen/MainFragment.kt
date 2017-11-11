@@ -40,7 +40,9 @@ class MainFragment : Fragment(), MainScreenContract.View {
         val alertLayout = layoutInflater.inflate(R.layout.dialog_layout, null) as View
         val mValueEditText = alertLayout.find<EditText>(R.id.editText)
 
-        alert ("Enter amount of cash", dialogType.toString()) {
+        val title = if (dialogType == (DialogType.DIALOG_INCOME)) "New income" else "New expense"
+
+        alert ("Enter amount of cash", title = title) {
             customView = alertLayout
             yesButton {
                 presenter.onNewItemAdded(dialogType, mValueEditText.text.toString())

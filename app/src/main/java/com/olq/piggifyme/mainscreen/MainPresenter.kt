@@ -13,6 +13,10 @@ class MainPresenter(val mainView: MainScreenContract.View,
 
 
     override fun start() {
+        updateViews()
+    }
+
+    private fun updateViews() {
         mainView.updateIncomeView(model.incomeValue)
         mainView.updateExpenseView(model.expenseValue)
         mainView.updateBalanceView(model.calculateBalance())
@@ -51,5 +55,10 @@ class MainPresenter(val mainView: MainScreenContract.View,
 
             mainView.updateBalanceView(model.calculateBalance())
         }
+    }
+
+    override fun onResetClick() {
+        model.resetData()
+        updateViews()
     }
 }

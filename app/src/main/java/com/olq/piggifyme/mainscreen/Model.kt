@@ -9,4 +9,9 @@ class Model {
     var expenseValue = 0
 
     fun calculateBalance() = incomeValue - expenseValue
+
+    fun resetData() {
+        incomeValue = 0
+        expenseValue = 0
+    }
 }

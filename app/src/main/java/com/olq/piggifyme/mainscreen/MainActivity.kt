@@ -8,6 +8,7 @@ import com.olq.piggifyme.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.floating_menu_layout.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +47,11 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_reset -> true
+            R.id.action_reset -> {
+                presenter.onResetClick()
+                toast("Data re-set")
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

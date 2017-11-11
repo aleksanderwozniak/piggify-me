@@ -18,5 +18,6 @@ interface MainScreenContract {
     interface Presenter : BasePresenter {
         fun onFABItemClick(dialogType: DialogType)
         fun onNewItemAdded(dialogType: DialogType, amount: String)
+        fun onResetClick()
     }
 }
