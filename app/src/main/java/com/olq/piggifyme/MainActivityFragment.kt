@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class MainActivityFragment : Fragment() {
+
+    companion object {
+        fun newInstance(): MainActivityFragment {
+            return MainActivityFragment()
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
