@@ -10,9 +10,13 @@ interface MainScreenContract {
 
     interface View : BaseView<Presenter> {
         fun showNewItemDialog(dialogType: DialogType)
+        fun updateIncomeView(value: Int)
+        fun updateExpenseView(value: Int)
+        fun updateBalanceView(value: Int)
     }
 
     interface Presenter : BasePresenter {
-        fun validateUserInput(amout: String)
+        fun onFABItemClick(dialogType: DialogType)
+        fun onNewItemAdded(dialogType: DialogType, amount: String)
     }
 }
