@@ -1,6 +1,9 @@
 package com.olq.piggifyme.injector
 
-import com.olq.piggifyme.mainscreen.Model
+import android.content.Context
+import com.olq.piggifyme.data.database.LocalDataSource
+import com.olq.piggifyme.data.database.PiggifyDbHelper
+import com.olq.piggifyme.data.Model
 
 /**
  * Created by olq on 11.11.17.
@@ -8,9 +11,8 @@ import com.olq.piggifyme.mainscreen.Model
 //TODO: to be swapped for Dagger2
 object Injector {
 
-    private val model = Model()
-
-    fun provideModel(): Model {
-        return model
+    fun provideModel(ctx: Context): Model {
+        checkNotNull(ctx)
+        return Model.getInstance(LocalDataSource(PiggifyDbHelper.getInstance(ctx)))
     }
 }

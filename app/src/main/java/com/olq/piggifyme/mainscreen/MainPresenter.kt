@@ -1,9 +1,11 @@
 package com.olq.piggifyme.mainscreen
 
+import com.olq.piggifyme.data.Model
+
 /**
  * Created by olq on 11.11.17.
  */
-class MainPresenter(val mainView: MainScreenContract.View,
+class MainPresenter(private val mainView: MainScreenContract.View,
                     val model: Model)
     : MainScreenContract.Presenter {
 
@@ -13,6 +15,7 @@ class MainPresenter(val mainView: MainScreenContract.View,
 
 
     override fun start() {
+        model.pullData()
         updateViews()
     }
 
@@ -32,6 +35,7 @@ class MainPresenter(val mainView: MainScreenContract.View,
         val newValue = validateUserInput(amount)
 
         updateData(dialogType, newValue)
+        model.pushData()
     }
 
 

@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //TODO: Injector - swap it later for Dagger2
-        presenter = MainPresenter(fragment!!, Injector.provideModel())
+        presenter = MainPresenter(fragment!!, Injector.provideModel(applicationContext))
 
         fab_income.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_INCOME) }
         fab_expense.setOnClickListener { presenter.onFABItemClick(DialogType.DIALOG_EXPENSE) }
