@@ -32,40 +32,64 @@ class MainPresenter(private val mainView: MainScreenContract.View,
     }
 
 
-    override fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>) {
-        val sourceName = (data.first)
-        val addedValue = validateUserInput(data.second)
+    // returns true if new item was successfully added
+    override fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>): Boolean {
+        if (isUserInputValid(data)) {
+            val sourceName = data.first
+            val addedValue = data.second.toInt()
 
-        updateValueData(dialogType, addedValue)
+            updateValueData(dialogType, addedValue)
 
-        model.pushData(Triplet(
-                type = dialogType.toString(),
-                source = sourceName,
-                value = addedValue))
+            model.pushData(Triplet(
+                    type = dialogType.toString(),
+                    source = sourceName,
+                    value = addedValue))
+
+            return true
+        }
+
+        return false
     }
 
+    private fun isUserInputValid(data: Pair<String, String>): Boolean {
+        if (!isSourceNameValid(data.first)) {
+            mainView.showSourceNameError("Source field can not be blank")
+            return false
+        }
 
-    private fun validateUserInput(amount: String): Int {
-        return if (amount.isEmpty()) 0 else amount.toInt()
+        if (!isValueValid(data.second)) {
+            mainView.showValueError("Amount can not be empty or 0")
+            return false
+        }
+
+        return true
     }
+
+    private fun isSourceNameValid(source: String): Boolean {
+        return source.isNotBlank()
+    }
+
+    private fun isValueValid(value: String): Boolean {
+        return value.isNotBlank() && value.toInt() > 0
+    }
+
 
     private fun updateValueData(dialogType: DialogType, value: Int) {
-        if (value > 0) {
-            when (dialogType) {
-                DialogType.DIALOG_INCOME -> {
-                    model.incomeValue += value
-                    mainView.updateIncomeView(model.incomeValue)
-                }
-
-                DialogType.DIALOG_EXPENSE -> {
-                    model.expenseValue += value
-                    mainView.updateExpenseView(model.expenseValue)
-                }
+        when (dialogType) {
+            DialogType.DIALOG_INCOME -> {
+                model.incomeValue += value
+                mainView.updateIncomeView(model.incomeValue)
             }
 
-            mainView.updateBalanceView(model.calculateBalance())
+            DialogType.DIALOG_EXPENSE -> {
+                model.expenseValue += value
+                mainView.updateExpenseView(model.expenseValue)
+            }
         }
+
+        mainView.updateBalanceView(model.calculateBalance())
     }
+
 
     override fun onResetClick() {
         model.resetData()

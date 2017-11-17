@@ -13,11 +13,13 @@ interface MainScreenContract {
         fun updateIncomeView(value: Int)
         fun updateExpenseView(value: Int)
         fun updateBalanceView(value: Int)
+        fun showSourceNameError(errorMsg: String)
+        fun showValueError(errorMsg: String)
     }
 
     interface Presenter : BasePresenter {
         fun onFABItemClick(dialogType: DialogType)
-        fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>)
+        fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>): Boolean
         fun onResetClick()
     }
 }

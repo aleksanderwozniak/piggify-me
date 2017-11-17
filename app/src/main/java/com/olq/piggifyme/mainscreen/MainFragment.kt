@@ -2,6 +2,7 @@ package com.olq.piggifyme.mainscreen
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,20 +15,24 @@ import org.jetbrains.anko.support.v4.toast
 
 class MainFragment : Fragment(), MainScreenContract.View {
 
-    override lateinit var presenter: MainScreenContract.Presenter
-
-
     companion object {
         fun newInstance(): MainFragment {
             return MainFragment()
         }
     }
 
+    override lateinit var presenter: MainScreenContract.Presenter
+    lateinit var alertLayout: View
+    lateinit var mSourceEditText: EditText
+    lateinit var mValueEditText: EditText
+
+
 
     override fun onResume() {
         super.onResume()
         presenter.start()
     }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -37,22 +42,39 @@ class MainFragment : Fragment(), MainScreenContract.View {
 
 
     override fun showNewItemDialog(dialogType: DialogType) {
-        val alertLayout = layoutInflater.inflate(R.layout.dialog_layout, null)
+        alertLayout = layoutInflater.inflate(R.layout.dialog_layout, null)
 
-        val mSourceEditText = alertLayout.find<EditText>(R.id.mSourceEditText)
-        val mValueEditText = alertLayout.find<EditText>(R.id.mAmountEditText)
+        mSourceEditText = alertLayout.find(R.id.mSourceEditText)
+        mValueEditText = alertLayout.find(R.id.mAmountEditText)
 
         val title = if (dialogType == (DialogType.DIALOG_INCOME)) "New income" else "New expense"
 
-        alert ("Fill both fields listed below", title = title) {
+        val mAlert = alert ("Fill both fields listed below", title = title) {
             customView = alertLayout
-            yesButton {
-                val data = Pair(mSourceEditText.text.toString(), mValueEditText.text.toString())
-                presenter.onNewItemAdded(dialogType, data)
-                toast("New item added") }
-            noButton {  }
+            positiveButton("OK") { }
+            noButton { }
         }.show()
+
+
+        mAlert.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            val data = Pair(mSourceEditText.text.toString(), mValueEditText.text.toString())
+
+            if (presenter.onNewItemAdded(dialogType, data)) {
+                toast("New item added")
+                mAlert.dismiss()
+            }
+        }
+
     }
+
+    override fun showSourceNameError(errorMsg: String) {
+        mSourceEditText.error = errorMsg
+    }
+
+    override fun showValueError(errorMsg: String) {
+        mValueEditText.error = errorMsg
+    }
+
 
     override fun updateIncomeView(value: Int) {
         mIncomeTextView.text = getString(R.string.income_text, value)
