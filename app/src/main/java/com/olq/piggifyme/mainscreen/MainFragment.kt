@@ -37,12 +37,14 @@ class MainFragment : Fragment(), MainScreenContract.View {
 
 
     override fun showNewItemDialog(dialogType: DialogType) {
-        val alertLayout = layoutInflater.inflate(R.layout.dialog_layout, null) as View
-        val mValueEditText = alertLayout.find<EditText>(R.id.editText)
+        val alertLayout = layoutInflater.inflate(R.layout.dialog_layout, null)
+
+        val mSourceEditText = alertLayout.find<EditText>(R.id.mSourceEditText)
+        val mValueEditText = alertLayout.find<EditText>(R.id.mAmountEditText)
 
         val title = if (dialogType == (DialogType.DIALOG_INCOME)) "New income" else "New expense"
 
-        alert ("Enter amount of cash", title = title) {
+        alert ("Fill both fields listed below", title = title) {
             customView = alertLayout
             yesButton {
                 presenter.onNewItemAdded(dialogType, mValueEditText.text.toString())

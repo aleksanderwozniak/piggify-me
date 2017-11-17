@@ -4,4 +4,6 @@
     <string name="income_text">Income: %1$d</string>
     <string name="expense_text">Expense: %1$d</string>
     <string name="balance_text">Balance: %1$d</string>
+    <string name="source_hint">Source</string>
+    <string name="amount_hint">Amount</string>
 </resources>
