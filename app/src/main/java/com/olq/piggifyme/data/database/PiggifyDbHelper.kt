@@ -27,7 +27,9 @@ class PiggifyDbHelper(ctx: Context) :
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(ModelTable.NAME, true,
-                ModelTable.ID to TEXT + PRIMARY_KEY,
+                ModelTable.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                ModelTable.TYPE to TEXT,
+                ModelTable.SOURCE to TEXT,
                 ModelTable.VALUE to INTEGER)
     }
 

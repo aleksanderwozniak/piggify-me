@@ -31,10 +31,11 @@ class MainPresenter(private val mainView: MainScreenContract.View,
     }
 
 
-    override fun onNewItemAdded(dialogType: DialogType, amount: String) {
-        val newValue = validateUserInput(amount)
+    override fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>) {
+        val sourceName = (data.first)
+        val newValue = validateUserInput(data.second)
 
-        updateData(dialogType, newValue)
+        updateValueData(dialogType, newValue)
         model.pushData()
     }
 
@@ -43,7 +44,7 @@ class MainPresenter(private val mainView: MainScreenContract.View,
         return if (amount.isEmpty()) 0 else amount.toInt()
     }
 
-    private fun updateData(dialogType: DialogType, value: Int) {
+    private fun updateValueData(dialogType: DialogType, value: Int) {
         if (value > 0) {
             when (dialogType) {
                 DialogType.DIALOG_INCOME -> {

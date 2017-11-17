@@ -47,8 +47,9 @@ class MainFragment : Fragment(), MainScreenContract.View {
         alert ("Fill both fields listed below", title = title) {
             customView = alertLayout
             yesButton {
-                presenter.onNewItemAdded(dialogType, mValueEditText.text.toString())
-                toast("New item added") }
+                val data = Pair(mSourceEditText.text.toString(), mValueEditText.text.toString())
+                presenter.onNewItemAdded(dialogType, data)
+                toast("New item added, ${data}") }
             noButton {  }
         }.show()
     }

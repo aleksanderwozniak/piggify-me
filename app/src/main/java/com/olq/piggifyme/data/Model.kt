@@ -25,18 +25,18 @@ class Model (private val dataSource: LocalDataSource){
     fun calculateBalance() = incomeValue - expenseValue
 
     fun pullData() {
-        val dataList = dataSource.getData()
-        incomeValue = dataList[0].second
-        expenseValue = dataList[1].second
+//        val dataList = dataSource.getData()
+//        incomeValue = dataList[0].second
+//        expenseValue = dataList[1].second
     }
 
     fun pushData() {
-        dataSource.saveData(incomeValue, expenseValue)
+//        dataSource.saveData(incomeValue, expenseValue)
     }
 
     fun resetData() {
-        incomeValue = 0
-        expenseValue = 0
-        dataSource.saveData(0, 0)
+//        incomeValue = 0
+//        expenseValue = 0
+//        dataSource.saveData(0, 0)
     }
 }
