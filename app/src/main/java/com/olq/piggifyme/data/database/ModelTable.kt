@@ -6,5 +6,7 @@ package com.olq.piggifyme.data.database
 object ModelTable {
     val NAME = "ModelTable"
     val ID = "_id"
+    val TYPE = "type"
+    val SOURCE = "source"
     val VALUE = "value"
 }
