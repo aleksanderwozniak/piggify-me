@@ -49,7 +49,7 @@ class MainFragment : Fragment(), MainScreenContract.View {
             yesButton {
                 val data = Pair(mSourceEditText.text.toString(), mValueEditText.text.toString())
                 presenter.onNewItemAdded(dialogType, data)
-                toast("New item added, ${data}") }
+                toast("New item added") }
             noButton {  }
         }.show()
     }

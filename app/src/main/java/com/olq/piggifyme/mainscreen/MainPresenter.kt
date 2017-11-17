@@ -1,6 +1,7 @@
 package com.olq.piggifyme.mainscreen
 
 import com.olq.piggifyme.data.Model
+import com.olq.piggifyme.data.database.Triplet
 
 /**
  * Created by olq on 11.11.17.
@@ -33,10 +34,14 @@ class MainPresenter(private val mainView: MainScreenContract.View,
 
     override fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>) {
         val sourceName = (data.first)
-        val newValue = validateUserInput(data.second)
+        val addedValue = validateUserInput(data.second)
 
-        updateValueData(dialogType, newValue)
-        model.pushData()
+        updateValueData(dialogType, addedValue)
+
+        model.pushData(Triplet(
+                type = dialogType.toString(),
+                source = sourceName,
+                value = addedValue))
     }
 
 
