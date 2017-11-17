@@ -6,4 +6,6 @@
     <string name="balance_text">Balance: %1$d</string>
     <string name="source_hint">Source</string>
     <string name="amount_hint">Amount</string>
+    <string name="menu_overview">Overview</string>
+    <string name="menu_details">Details</string>
 </resources>
