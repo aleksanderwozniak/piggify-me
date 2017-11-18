@@ -1,4 +1,4 @@
-package com.olq.piggifyme.screens.details
+package com.olq.piggifyme.screens.details.income
 
 import com.olq.piggifyme.data.Model
 

@@ -24,6 +24,7 @@ class Model (private val dataSource: LocalDataSource){
     var incomeValue = 0
     var expenseValue = 0
     lateinit var listOfIncomes: List<String>
+    lateinit var listOfExpenses: List<String>
 
     fun calculateBalance() = incomeValue - expenseValue
 
@@ -36,6 +37,8 @@ class Model (private val dataSource: LocalDataSource){
             expenseValue = extractCashValue(dataList[1])
 
             listOfIncomes = extractSources(dataList[0])
+            listOfExpenses = extractSources(dataList[1])
+
         } else {
             incomeValue = 0
             expenseValue = 0

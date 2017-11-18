@@ -6,9 +6,9 @@
     <string name="balance_text">Balance: %1$d</string>
     <string name="source_hint">Source</string>
     <string name="amount_hint">Amount</string>
-    <string name="menu_overview">Overview</string>
-    <string name="menu_details">Details</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_overview">Summary</string>
+    <string name="menu_details_income">Incomes</string>
+    <string name="menu_details_expense">Expenses</string>
+    <string name="text_incomes">List of your incomes</string>
+    <string name="text_expenses">List of your expenses</string>
 </resources>

@@ -8,10 +8,10 @@ import android.view.View
 import com.olq.piggifyme.BasePresenter
 import com.olq.piggifyme.BaseView
 import com.olq.piggifyme.R
-import com.olq.piggifyme.screens.details.IncomeFragment
+import com.olq.piggifyme.screens.details.expense.ExpenseFragment
+import com.olq.piggifyme.screens.details.income.IncomeFragment
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.floating_menu_layout.*
 import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private val MAIN_FRAGMENT = "MainFragment"
         private val INCOME_FRAGMENT = "IncomeFragment"
+        private val EXPENSE_FRAGMENT = "ExpenseFragment"
     }
 
 
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                     .add(R.id.contentFrame, fragment, MAIN_FRAGMENT)
                     .commit()
 
+            bottom_navigation.selectedItemId = R.id.menu_overview
         }
 
         bottom_navigation.setOnNavigationItemSelectedListener { item -> onBottomNavClick(item) }
@@ -78,12 +80,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun onBottomNavClick(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_details -> {
+            R.id.menu_details_income -> {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.contentFrame, IncomeFragment.newInstance(), INCOME_FRAGMENT)
                         .addToBackStack(null)
                         .commit()
-                fab.visibility = View.GONE
+            }
+
+            R.id.menu_details_expense -> {
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
+                        .addToBackStack(null)
+                        .commit()
             }
 
             R.id.menu_overview -> {
@@ -91,7 +99,6 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.contentFrame, MainFragment.newInstance(), MAIN_FRAGMENT)
                         .addToBackStack(null)
                         .commit()
-                fab.visibility = View.VISIBLE
             }
         }
 

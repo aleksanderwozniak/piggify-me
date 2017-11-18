@@ -1,4 +1,4 @@
-package com.olq.piggifyme.screens.details
+package com.olq.piggifyme.screens.details.income
 
 
 import android.os.Bundle
@@ -38,7 +38,7 @@ class IncomeFragment : Fragment(), IncomeScreenContract.View {
 
 
     override fun showDetailList(list: List<String>) {
-        mDetailListView.adapter = ArrayAdapter<String>(context,
+        mIncomesListView.adapter = ArrayAdapter<String>(context,
                 android.R.layout.simple_list_item_1, list)
     }
 }
