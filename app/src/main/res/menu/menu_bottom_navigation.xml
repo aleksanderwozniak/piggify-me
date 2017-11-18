@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/category_clothing"
+        android:id="@+id/menu_overview"
         android:enabled="true"
         android:title="@string/menu_overview"
         android:icon="@drawable/ic_arrow_up"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/category_home"
+        android:id="@+id/menu_details"
         android:enabled="true"
         android:title="@string/menu_details"
         android:icon="@drawable/ic_arrow_down"

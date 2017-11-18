@@ -1,4 +1,4 @@
-package com.olq.piggifyme.mainscreen
+package com.olq.piggifyme.screens.main
 
 import com.olq.piggifyme.data.Model
 import com.olq.piggifyme.data.database.Triplet
@@ -9,10 +9,6 @@ import com.olq.piggifyme.data.database.Triplet
 class MainPresenter(private val mainView: MainScreenContract.View,
                     val model: Model)
     : MainScreenContract.Presenter {
-
-    init {
-        mainView.presenter = this
-    }
 
 
     override fun start() {
