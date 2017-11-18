@@ -53,6 +53,13 @@ class MainActivity : AppCompatActivity() {
                 .presenter.onFABItemClick(DialogType.DIALOG_EXPENSE)
     }
 
+    override fun onBackPressed() {
+        if (bottom_navigation.selectedItemId == R.id.menu_overview) {
+            super.onBackPressed()
+        } else {
+            bottom_navigation.selectedItemId = R.id.menu_overview
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -83,21 +90,18 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_details_income -> {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.contentFrame, IncomeFragment.newInstance(), INCOME_FRAGMENT)
-                        .addToBackStack(null)
                         .commit()
             }
 
             R.id.menu_details_expense -> {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
-                        .addToBackStack(null)
                         .commit()
             }
 
             R.id.menu_overview -> {
                 supportFragmentManager.beginTransaction()
                         .replace(R.id.contentFrame, MainFragment.newInstance(), MAIN_FRAGMENT)
-                        .addToBackStack(null)
                         .commit()
             }
         }
