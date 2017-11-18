@@ -5,7 +5,7 @@
         android:id="@+id/menu_details_income"
         android:enabled="true"
         android:title="@string/menu_details_income"
-        android:icon="@drawable/ic_arrow_up"
+        android:icon="@drawable/ic_attach_money_24dp"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_overview"
@@ -17,6 +17,6 @@
         android:id="@+id/menu_details_expense"
         android:enabled="true"
         android:title="@string/menu_details_expense"
-        android:icon="@drawable/ic_arrow_down"
+        android:icon="@drawable/ic_shopping_cart_24dp"
         app:showAsAction="ifRoom"/>
 </menu>

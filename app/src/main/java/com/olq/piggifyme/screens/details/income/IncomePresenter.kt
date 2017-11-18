@@ -12,7 +12,7 @@ class IncomePresenter(private val view: IncomeScreenContract.View,
 
     override fun start() {
         model.pullData()
-        view.showDetailList(model.listOfIncomes)
+        view.showDetailList(model.listOfIncomeDetails)
     }
 
     override fun onResetClick() {

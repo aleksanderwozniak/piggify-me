@@ -23,8 +23,8 @@ class Model (private val dataSource: LocalDataSource){
 
     var incomeValue = 0
     var expenseValue = 0
-    lateinit var listOfIncomes: List<String>
-    lateinit var listOfExpenses: List<String>
+    lateinit var listOfIncomeDetails: List<Pair<String, Int>>
+    lateinit var listOfExpenseDetails: List<Pair<String, Int>>
 
     fun calculateBalance() = incomeValue - expenseValue
 
@@ -36,8 +36,8 @@ class Model (private val dataSource: LocalDataSource){
             incomeValue = extractCashValue(dataList[0])
             expenseValue = extractCashValue(dataList[1])
 
-            listOfIncomes = extractSources(dataList[0])
-            listOfExpenses = extractSources(dataList[1])
+            listOfIncomeDetails = extractSources(dataList[0])
+            listOfExpenseDetails = extractSources(dataList[1])
 
         } else {
             incomeValue = 0
@@ -56,12 +56,12 @@ class Model (private val dataSource: LocalDataSource){
         return result
     }
 
-    private fun extractSources(list: List<Triplet>): List<String> {
-        val result = mutableListOf<String>()
+    private fun extractSources(list: List<Triplet>): List<Pair<String, Int>> {
+        val result = mutableListOf<Pair<String, Int>>()
 
         list.forEach {
             triplet ->
-            result.add(triplet.source)
+            result.add(Pair(triplet.source, triplet.value))
         }
 
         return result
