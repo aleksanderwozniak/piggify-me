@@ -14,14 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/income_text"
-        android:textColor="@color/colorGreen"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/mExpenseTextView"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/expense_text"
         android:textColor="@color/colorRed"
         android:textSize="@dimen/text_size"
@@ -45,7 +46,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
         android:text="@string/balance_text"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/blackSemiTransparent"
         android:textSize="@dimen/text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

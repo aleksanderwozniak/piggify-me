@@ -23,7 +23,9 @@
     </style>
 
     <style name="ThemeOverlay.Piggifyme.BottomNavigation" parent="">
-        <item name="colorPrimary">@color/white_pressed</item>
+        <item name="colorPrimary">@color/whitePressed</item>
+        <!--<item name="itemIconTint">@color/gray</item>-->
+        <!--<item name="itemTextColor">@color/gray</item>-->
     </style>
 
 </resources>

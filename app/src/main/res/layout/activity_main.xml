@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/black_semi_transparent"
+        android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.Piggifyme.BottomNavigation"
         app:menu="@menu/menu_bottom_navigation"/>
 
