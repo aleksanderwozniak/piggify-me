@@ -1,4 +1,4 @@
-package com.olq.piggifyme.mainscreen
+package com.olq.piggifyme.screens.main
 
 import com.olq.piggifyme.BasePresenter
 import com.olq.piggifyme.BaseView
@@ -20,6 +20,5 @@ interface MainScreenContract {
     interface Presenter : BasePresenter {
         fun onFABItemClick(dialogType: DialogType)
         fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>): Boolean
-        fun onResetClick()
     }
 }

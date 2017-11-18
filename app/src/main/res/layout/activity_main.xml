@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.olq.piggifyme.mainscreen.MainActivity">
+    tools:context=".screens.main.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -28,51 +28,13 @@
 
     </FrameLayout>
 
-    <include
-        layout="@layout/floating_menu_layout"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin" />
-
-
-    <!--<com.getbase.floatingactionbutton.FloatingActionsMenu-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--app:fab_labelsPosition="left"-->
-        <!--app:fab_labelStyle="@style/menu_labels_style"-->
-        <!--app:fab_addButtonSize="normal"-->
-        <!--app:fab_addButtonStrokeVisible="false"-->
-        <!--app:fab_addButtonPlusIconColor="@color/black"-->
-        <!--app:fab_addButtonColorNormal="@color/white"-->
-        <!--app:fab_addButtonColorPressed="@color/white_pressed">-->
-
-        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
-            <!--android:id="@+id/fab_income"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:fab_icon="@drawable/ic_arrow_up"-->
-            <!--app:fab_colorNormal="@color/white"-->
-            <!--app:fab_colorPressed="@color/white_pressed"-->
-            <!--app:fab_size="mini"-->
-            <!--app:fab_stroke_visible="false"-->
-            <!--app:fab_title="Add new income" />-->
-
-        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
-            <!--android:id="@+id/fab_expense"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:fab_icon="@drawable/ic_arrow_down"-->
-            <!--app:fab_colorNormal="@color/white"-->
-            <!--app:fab_colorPressed="@color/white_pressed"-->
-            <!--app:fab_size="mini"-->
-            <!--app:fab_stroke_visible="false"-->
-            <!--app:fab_title="Add new expense" />-->
-
-    <!--</com.getbase.floatingactionbutton.FloatingActionsMenu>-->
-
+        android:layout_gravity="bottom"
+        android:background="@color/black_semi_transparent"
+        android:theme="@style/ThemeOverlay.Piggifyme.BottomNavigation"
+        app:menu="@menu/menu_bottom_navigation"/>
 
 </android.support.design.widget.CoordinatorLayout>

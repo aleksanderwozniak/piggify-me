@@ -1,4 +1,4 @@
-package com.olq.piggifyme.mainscreen
+package com.olq.piggifyme.screens.main
 
 /**
  * Created by olq on 11.11.17.

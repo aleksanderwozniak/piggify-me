@@ -1,8 +1,8 @@
 package com.olq.piggifyme
 
-import com.olq.piggifyme.mainscreen.DialogType
-import com.olq.piggifyme.mainscreen.MainPresenter
-import com.olq.piggifyme.mainscreen.MainScreenContract
+import com.olq.piggifyme.screens.main.DialogType
+import com.olq.piggifyme.screens.main.MainPresenter
+import com.olq.piggifyme.screens.main.MainScreenContract
 import com.olq.piggifyme.data.Model
 import org.junit.Test
 import org.junit.runner.RunWith

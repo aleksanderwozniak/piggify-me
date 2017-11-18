@@ -1,6 +1,6 @@
 package com.olq.piggifyme.data.database
 
-import com.olq.piggifyme.mainscreen.DialogType
+import com.olq.piggifyme.screens.main.DialogType
 import com.olq.piggifyme.utils.parseList
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select

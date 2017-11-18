@@ -22,4 +22,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="ThemeOverlay.Piggifyme.BottomNavigation" parent="">
+        <item name="colorPrimary">@color/white_pressed</item>
+    </style>
+
 </resources>

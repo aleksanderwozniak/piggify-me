@@ -1,4 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_bottom_margin">72dp</dimen>
     <dimen name="text_size">24sp</dimen>
 </resources>

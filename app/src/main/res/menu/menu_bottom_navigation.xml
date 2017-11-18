@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_details_income"
+        android:enabled="true"
+        android:title="@string/menu_details_income"
+        android:icon="@drawable/ic_arrow_up"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_overview"
+        android:enabled="true"
+        android:title="@string/menu_overview"
+        android:icon="@drawable/ic_account_balance_24dp"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_details_expense"
+        android:enabled="true"
+        android:title="@string/menu_details_expense"
+        android:icon="@drawable/ic_arrow_down"
+        app:showAsAction="ifRoom"/>
+</menu>

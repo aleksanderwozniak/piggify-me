@@ -6,4 +6,5 @@ package com.olq.piggifyme
 interface BasePresenter {
 
     fun start()
+    fun onResetClick()
 }

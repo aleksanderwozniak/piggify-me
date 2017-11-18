@@ -17,9 +17,10 @@
         android:id="@+id/fab_income"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_icon="@drawable/ic_arrow_up"
+        android:onClick="onFabIncomeClick"
         fab:fab_colorNormal="@color/white"
         fab:fab_colorPressed="@color/white_pressed"
+        fab:fab_icon="@drawable/ic_arrow_up"
         fab:fab_size="mini"
         fab:fab_stroke_visible="false"
         fab:fab_title="Add new income" />
@@ -28,9 +29,10 @@
         android:id="@+id/fab_expense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_icon="@drawable/ic_arrow_down"
+        android:onClick="onFabExpenseClick"
         fab:fab_colorNormal="@color/white"
         fab:fab_colorPressed="@color/white_pressed"
+        fab:fab_icon="@drawable/ic_arrow_down"
         fab:fab_size="mini"
         fab:fab_stroke_visible="false"
         fab:fab_title="Add new expense" />

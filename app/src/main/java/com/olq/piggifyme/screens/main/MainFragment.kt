@@ -1,4 +1,4 @@
-package com.olq.piggifyme.mainscreen
+package com.olq.piggifyme.screens.main
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import com.olq.piggifyme.R
+import com.olq.piggifyme.injector.Injector
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.support.v4.alert
@@ -36,9 +37,10 @@ class MainFragment : Fragment(), MainScreenContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        presenter = MainPresenter(this, Injector.provideModel(context))
+
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
-
 
 
     override fun showNewItemDialog(dialogType: DialogType) {
