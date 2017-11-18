@@ -11,4 +11,6 @@
     <string name="menu_details_expense">Expenses</string>
     <string name="text_incomes">List of your incomes</string>
     <string name="text_expenses">List of your expenses</string>
+    <string name="detailNameText">%1$s</string>
+    <string name="detailValueText">%1$d</string>
 </resources>

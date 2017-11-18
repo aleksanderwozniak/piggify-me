@@ -1,7 +1,6 @@
 package com.olq.piggifyme.screens.details.expense
 
 import com.olq.piggifyme.data.Model
-import com.olq.piggifyme.screens.details.income.IncomeScreenContract
 
 /**
  * Created by olq on 18.11.17.
@@ -13,7 +12,7 @@ class ExpensePresenter(private val view: ExpenseScreenContract.View,
 
     override fun start() {
         model.pullData()
-        view.showDetailList(model.listOfExpenses)
+        view.showDetailList(model.listOfExpenseDetails)
     }
 
     override fun onResetClick() {

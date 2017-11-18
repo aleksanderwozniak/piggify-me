@@ -20,7 +20,7 @@
         android:onClick="onFabIncomeClick"
         fab:fab_colorNormal="@color/white"
         fab:fab_colorPressed="@color/whitePressed"
-        fab:fab_icon="@drawable/ic_arrow_up"
+        fab:fab_icon="@drawable/ic_attach_money_24dp"
         fab:fab_size="mini"
         fab:fab_stroke_visible="false"
         fab:fab_title="Add new income" />
@@ -32,7 +32,7 @@
         android:onClick="onFabExpenseClick"
         fab:fab_colorNormal="@color/white"
         fab:fab_colorPressed="@color/whitePressed"
-        fab:fab_icon="@drawable/ic_arrow_down"
+        fab:fab_icon="@drawable/ic_shopping_cart_24dp"
         fab:fab_size="mini"
         fab:fab_stroke_visible="false"
         fab:fab_title="Add new expense" />

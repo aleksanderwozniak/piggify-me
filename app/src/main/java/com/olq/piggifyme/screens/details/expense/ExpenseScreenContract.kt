@@ -9,7 +9,7 @@ import com.olq.piggifyme.BaseView
 interface ExpenseScreenContract {
 
     interface View : BaseView<Presenter> {
-        fun showDetailList(list: List<String>)
+        fun showDetailList(list: List<Pair<String, Int>>)
     }
 
     interface Presenter : BasePresenter { }
