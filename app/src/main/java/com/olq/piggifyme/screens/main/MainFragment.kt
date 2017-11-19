@@ -62,7 +62,7 @@ class MainFragment : Fragment(), MainScreenContract.View {
             val data = Pair(mSourceEditText.text.toString(), mValueEditText.text.toString())
 
             if (presenter.onNewItemAdded(dialogType, data)) {
-                toast("New item added")
+                toast("$title added")
                 mAlert.dismiss()
             }
         }
@@ -78,15 +78,15 @@ class MainFragment : Fragment(), MainScreenContract.View {
     }
 
 
-    override fun updateIncomeView(value: Int) {
+    override fun updateIncomeView(value: Long) {
         mIncomeTextView.text = getString(R.string.income_text, value)
     }
 
-    override fun updateExpenseView(value: Int) {
+    override fun updateExpenseView(value: Long) {
         mExpenseTextView.text = getString(R.string.expense_text, value)
     }
 
-    override fun updateBalanceView(value: Int) {
+    override fun updateBalanceView(value: Long) {
         mBalanceTextView.text = getString(R.string.balance_text, value)
     }
 }

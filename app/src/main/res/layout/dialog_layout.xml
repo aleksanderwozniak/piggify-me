@@ -12,7 +12,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/source_hint"
-        android:inputType="textCapWords|textShortMessage"
+        android:inputType="textCapSentences|textShortMessage"
         android:singleLine="true" />
 
     <EditText
@@ -23,6 +23,6 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/amount_hint"
-        android:inputType="number|numberSigned"
+        android:inputType="number"
         android:singleLine="true" />
 </LinearLayout>

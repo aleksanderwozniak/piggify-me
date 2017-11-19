@@ -10,9 +10,9 @@ interface MainScreenContract {
 
     interface View : BaseView<Presenter> {
         fun showNewItemDialog(dialogType: DialogType)
-        fun updateIncomeView(value: Int)
-        fun updateExpenseView(value: Int)
-        fun updateBalanceView(value: Int)
+        fun updateIncomeView(value: Long)
+        fun updateExpenseView(value: Long)
+        fun updateBalanceView(value: Long)
         fun showSourceNameError(errorMsg: String)
         fun showValueError(errorMsg: String)
     }

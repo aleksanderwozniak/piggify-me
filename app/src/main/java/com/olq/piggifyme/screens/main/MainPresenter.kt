@@ -32,7 +32,7 @@ class MainPresenter(private val mainView: MainScreenContract.View,
     override fun onNewItemAdded(dialogType: DialogType, data: Pair<String, String>): Boolean {
         if (isUserInputValid(data)) {
             val sourceName = data.first
-            val addedValue = data.second.toInt()
+            val addedValue = data.second.toLong()
 
             updateValueData(dialogType, addedValue)
 
@@ -53,6 +53,12 @@ class MainPresenter(private val mainView: MainScreenContract.View,
             return false
         }
 
+        if (!isValueNotTooBig(data.second)) {
+            mainView.showValueError("Amount can not be that big\n" +
+                    "Please add it in two steps")
+            return false
+        }
+
         if (!isValueValid(data.second)) {
             mainView.showValueError("Amount can not be empty or 0")
             return false
@@ -69,8 +75,12 @@ class MainPresenter(private val mainView: MainScreenContract.View,
         return value.isNotBlank() && value.toInt() > 0
     }
 
+    private fun isValueNotTooBig(value: String): Boolean {
+        return value.length < Int.MAX_VALUE.toString().length
+    }
 
-    private fun updateValueData(dialogType: DialogType, value: Int) {
+
+    private fun updateValueData(dialogType: DialogType, value: Long) {
         when (dialogType) {
             DialogType.DIALOG_INCOME -> {
                 model.incomeValue += value

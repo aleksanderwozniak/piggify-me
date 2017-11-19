@@ -21,8 +21,8 @@ class Model (private val dataSource: LocalDataSource){
     }
 
 
-    var incomeValue = 0
-    var expenseValue = 0
+    var incomeValue: Long = 0
+    var expenseValue: Long = 0
     lateinit var listOfIncomeDetails: List<Pair<String, Int>>
     lateinit var listOfExpenseDetails: List<Pair<String, Int>>
 
@@ -45,12 +45,13 @@ class Model (private val dataSource: LocalDataSource){
         }
     }
 
-    private fun extractCashValue(list: List<Triplet>): Int {
-        var result = 0
+    private fun extractCashValue(list: List<Triplet>): Long {
+        var result: Long = 0
 
         list.forEach {
             triplet ->
-            result += triplet.value
+            result += (triplet.value)
+
         }
 
         return result
@@ -61,7 +62,7 @@ class Model (private val dataSource: LocalDataSource){
 
         list.forEach {
             triplet ->
-            result.add(Pair(triplet.source, triplet.value))
+            result.add(Pair(triplet.source, triplet.value.toInt()))
         }
 
         return result
