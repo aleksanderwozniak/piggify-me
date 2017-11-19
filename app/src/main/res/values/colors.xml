@@ -11,4 +11,5 @@
     <color name="gray">#9b9b9b</color>
     <color name="black">#0a0a0a</color>
     <color name="blackSemiTransparent">#b2000000</color>
+    <color name="blackLight">#2a2a2a</color>
 </resources>
