@@ -8,3 +8,6 @@
 - You can reset the data whenever you like
 
 ![](https://media.giphy.com/media/26FfaWPYae2yeciVG/giphy.gif)
+
+___
+*App icon was based on [Freepik's](https://www.freepik.com/) icon from www.flaticon.com*
