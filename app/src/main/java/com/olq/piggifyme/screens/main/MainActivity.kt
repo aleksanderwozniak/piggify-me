@@ -95,17 +95,17 @@ class MainActivity : AppCompatActivity() {
                         .commit()
             }
 
-            R.id.menu_details_expense -> {
-                supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                        .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
-                        .commit()
-            }
-
             R.id.menu_overview -> {
                 supportFragmentManager.beginTransaction()
                         .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.contentFrame, MainFragment.newInstance(), MAIN_FRAGMENT)
+                        .commit()
+            }
+
+            R.id.menu_details_expense -> {
+                supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                        .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
                         .commit()
             }
         }
