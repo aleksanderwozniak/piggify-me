@@ -21,6 +21,7 @@ class Model (private val dataSource: LocalDataSource){
     }
 
 
+    var cacheIsDirty = true
     var incomeValue: Long = 0
     var expenseValue: Long = 0
     lateinit var listOfIncomeDetails: List<Pair<String, Int>>
@@ -30,18 +31,22 @@ class Model (private val dataSource: LocalDataSource){
 
 
     fun pullData() {
-        val dataList = dataSource.getData()
+        if (cacheIsDirty) {
+            val dataList = dataSource.getData()
 
-        if (dataList != null) {
-            incomeValue = extractCashValue(dataList[0])
-            expenseValue = extractCashValue(dataList[1])
+            if (dataList != null) {
+                incomeValue = extractCashValue(dataList[0])
+                expenseValue = extractCashValue(dataList[1])
 
-            listOfIncomeDetails = extractSources(dataList[0])
-            listOfExpenseDetails = extractSources(dataList[1])
+                listOfIncomeDetails = extractSources(dataList[0])
+                listOfExpenseDetails = extractSources(dataList[1])
 
-        } else {
-            incomeValue = 0
-            expenseValue = 0
+            } else {
+                incomeValue = 0
+                expenseValue = 0
+            }
+
+            cacheIsDirty = false
         }
     }
 
@@ -70,6 +75,7 @@ class Model (private val dataSource: LocalDataSource){
 
     fun pushData(triplet: Triplet){
         dataSource.saveData(triplet)
+        cacheIsDirty = true
     }
 
 

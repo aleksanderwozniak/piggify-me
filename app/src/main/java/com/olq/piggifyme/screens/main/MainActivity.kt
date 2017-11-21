@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottom_navigation.setOnNavigationItemSelectedListener { item -> onBottomNavClick(item) }
+        bottom_navigation.setOnNavigationItemReselectedListener { }
     }
 
     fun onFabIncomeClick(view: View) {
@@ -89,19 +90,22 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_details_income -> {
                 supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.contentFrame, IncomeFragment.newInstance(), INCOME_FRAGMENT)
-                        .commit()
-            }
-
-            R.id.menu_details_expense -> {
-                supportFragmentManager.beginTransaction()
-                        .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
                         .commit()
             }
 
             R.id.menu_overview -> {
                 supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .replace(R.id.contentFrame, MainFragment.newInstance(), MAIN_FRAGMENT)
+                        .commit()
+            }
+
+            R.id.menu_details_expense -> {
+                supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                        .replace(R.id.contentFrame, ExpenseFragment.newInstance(), EXPENSE_FRAGMENT)
                         .commit()
             }
         }
