@@ -1,6 +1,6 @@
 package com.olq.piggifyme.screens.details.expense
 
-import com.olq.piggifyme.BasePresenter
+import com.olq.piggifyme.screens.BasePresenter
 import com.olq.piggifyme.screens.details.DetailView
 
 /**

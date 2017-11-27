@@ -16,6 +16,7 @@ class ExpensePresenter(private val view: ExpenseScreenContract.View,
     }
 
     override fun onResetClick() {
+        model.cacheIsDirty = true
         model.resetData()
         start()
     }

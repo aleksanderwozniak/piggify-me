@@ -16,6 +16,7 @@ class IncomePresenter(private val view: IncomeScreenContract.View,
     }
 
     override fun onResetClick() {
+        model.cacheIsDirty = true
         model.resetData()
         start()
     }

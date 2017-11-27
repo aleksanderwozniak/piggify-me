@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.olq.piggifyme.BasePresenter
-import com.olq.piggifyme.BaseView
+import com.olq.piggifyme.screens.BasePresenter
+import com.olq.piggifyme.screens.BaseView
 import com.olq.piggifyme.R
 import com.olq.piggifyme.screens.details.expense.ExpenseFragment
 import com.olq.piggifyme.screens.details.income.IncomeFragment

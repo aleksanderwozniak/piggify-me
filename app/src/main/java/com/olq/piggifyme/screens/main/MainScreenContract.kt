@@ -1,7 +1,7 @@
 package com.olq.piggifyme.screens.main
 
-import com.olq.piggifyme.BasePresenter
-import com.olq.piggifyme.BaseView
+import com.olq.piggifyme.screens.BasePresenter
+import com.olq.piggifyme.screens.BaseView
 
 /**
  * Created by olq on 11.11.17.

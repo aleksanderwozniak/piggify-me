@@ -1,6 +1,6 @@
 package com.olq.piggifyme.screens.details
 
-import com.olq.piggifyme.BaseView
+import com.olq.piggifyme.screens.BaseView
 
 /**
  * Created by olq on 19.11.17.

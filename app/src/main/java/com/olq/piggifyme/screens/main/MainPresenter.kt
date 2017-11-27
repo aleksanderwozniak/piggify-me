@@ -98,6 +98,7 @@ class MainPresenter(private val mainView: MainScreenContract.View,
 
 
     override fun onResetClick() {
+        model.cacheIsDirty = true
         model.resetData()
         updateViews()
     }
